@@ -1,3 +1,13 @@
 @import '../src/style/variables.scss';
 @import '../src/style/rem-calc.scss';
 @import '../src/style/reset.scss';
+
+html {
+  background: var(--gray-dark);
+}
+
+main {
+  margin: 0 auto;
+  box-sizing: border-box;
+  max-width: rem-calc(600);
+}
