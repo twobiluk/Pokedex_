@@ -26,7 +26,7 @@ $padding: rem-calc(20);
 			border-radius: rem-calc(10);
 
 			text-decoration: none;
-			color: var(--gray-dark);
+			color: var(--white);
 
 			&__status {
 				h2 {
@@ -43,8 +43,8 @@ $padding: rem-calc(20);
 					flex-direction: column;
 
 					li {
-						background: var(--gray);
 						font-size: rem-calc(16);
+            font-weight: 500;
 
 						display: flex;
 						justify-content: center;

@@ -1,5 +1,5 @@
 :root {
-  //Stylr types
+  // Stylr types
   --grass: #3e9709;
   --grass-light: #7eb95b;
   --fire: #fc0c0b;
@@ -37,17 +37,74 @@
   --fairy: #ffa0c2;
   --fairy-light: #fdd1e0;
 
-  //Details
+  // Details
   --gray-light: #d8d8d8;
   --gray-dark: #606060;
   --gray: #b6b6b6;
   --pink: #ff5473;
 
-  //Default
+  // Default
   --transparent: transparent;
   --black: #000000;
   --white: #ffffff;
+}
 
+$colors: (
+  'black': var(--black),
+  'white': var(--white),
+  'grass': var(--grass),
+  'grass-light': var(--grass-light),
+  'fire': var(--fire),
+  'fire-light': var(--fire-light),
+  'water': var(--water),
+  'water-light': var(--water-light),
+  'normal': var(--normal),
+  'normal-light': var(--normal-light),
+  'flying': var(--flying),
+  'flying-light': var(--flying-light),
+  'bug': var(--bug),
+  'bug-light': var(--bug-light),
+  'poison': var(--poison),
+  'poison-light': var(--poison-light),
+  'electric': var(--electric),
+  'electric-light': var(--electric-light),
+  'ground': var(--ground),
+  'ground-light': var(--ground-light),
+  'fighting': var(--fighting),
+  'fighting-light': var(--fighting-light),
+  'psychic': var(--psychic),
+  'psychic-light': var(--psychic-light),
+  'rock': var(--rock),
+  'rock-light': var(--rock-light),
+  'ice': var(--ice),
+  'ice-light': var(--ice-light),
+  'ghost': var(--ghost),
+  'ghost-light': var(--ghost-light),
+  'dragon': var(--dragon),
+  'dragon-light': var(--dragon-light),
+  'dark': var(--dark),
+  'dark-light': var(--dark-light),
+  'steel': var(--steel),
+  'steel-light': var(--steel-light),
+  'fairy': var(--fairy),
+  'fairy-light': var(--fairy-light),
+  'gray': var(--gray)
+);
 
+@each $name, $value in $colors {
+  .bg-color-#{$name} {
+    background-color: $value !important;
+  }
+  .color-#{$name} {
+    color: $value !important;
+  }
+}
 
+@for $i from 0 through 100 {
+  .w-#{$i} {
+    width: #{$i * 1%};
+  }
+  .h-#{$i} {
+    height: #{$i * 1%};
+  }
 }

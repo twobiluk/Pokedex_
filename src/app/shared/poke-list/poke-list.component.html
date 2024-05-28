@@ -2,16 +2,21 @@
 <app-poke-search (emmitSearch)="getSearch($event)" ></app-poke-search>
 <section class="listagem">
   <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons" >
-    <a [routerLink]="['details', pokemon.status.id]" class="pokemon" *ngIf="pokemon.status">
+    <a
+    [routerLink]="['details', pokemon.status.id]"
+    class="pokemon {{ 'bg-color-' + getPrincipalType(pokemon.status.types) + '-light' }}"
+    *ngIf="pokemon.status"
+    >
       <section class="pokemon__status">
         <h2>
           {{ pokemon.status.id }} {{ pokemon.name }}
         </h2>
         <ul>
-          <li *ngFor="let value of pokemon.status.types">
+          <li
+          *ngFor="let value of pokemon.status.types"
+          class="{{ 'bg-color-' + value.type.name }}">
             {{ value.type.name }}
-          </li>
-
+          <li>
         </ul>
       </section>
       <section class="pokemon__image">
@@ -21,7 +26,6 @@
       </section>
     </a>
   </ng-template>
-
 </section>
 
 

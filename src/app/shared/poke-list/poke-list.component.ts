@@ -35,4 +35,7 @@ export class PokeListComponent implements OnInit {
 
     this.getAllPokemons = filter;
   }
+  getPrincipalType(list: any[]) {
+    return list.filter(x => x.slot === 1)[0]?.type.name;
+  }
 }
