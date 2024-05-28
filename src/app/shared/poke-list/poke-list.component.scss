@@ -1,90 +1,90 @@
 @import '../../../style/rem-calc.scss';
-@import '../../../style/variables.scss';
 
 $padding: rem-calc(20);
+
 :host {
-  .listagem {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+	width: 100%;
 
+	.listagem {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
 
-    //overflow: scroll;
+		padding: $padding 0;
 
-    padding: $padding 0;
+		.pokemon {
+			position: relative;
+			display: flex;
+			background: var(--white);
 
-    .pokemon {
-      position: relative;
-      display: flex;
-      background: var(--white);
-      color: var(--black);
+			width: calc(49% - 2.5rem);
+			height: rem-calc(157 - 40);
 
-      width: calc(49% - 2.5rem);
-      height: rem-calc(157 - 40);
+			margin-bottom: rem-calc(10);
+			padding: $padding;
 
-      margin-bottom: rem-calc(10);
-      padding: $padding;
+			border-radius: rem-calc(10);
 
-      border-radius: rem-calc(10);
+			text-decoration: none;
+			color: var(--gray-dark);
 
-      text-decoration: none;
+			&__status {
+				h2 {
+					font-size: rem-calc(22);
+					font-style: italic;
+					font-weight: 700;
+					text-transform: capitalize;
 
-      &__status {
-        h2 {
-          font-size: rem-calc(22);
-          font-style: italic;
-          font-weight: 700;
+					margin-bottom: rem-calc(10);
+				}
 
-          text-transform: capitalize;
+				ul {
+					display: flex;
+					flex-direction: column;
 
-          margin-bottom: rem-calc(10);
-        }ul {
-          display: flex;
-          flex-direction: column;
+					li {
+						background: var(--gray);
+						font-size: rem-calc(16);
 
-          li {
-            background: var(--gray);
-            font-size: rem-calc(16);
+						display: flex;
+						justify-content: center;
+						align-items: center;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+						border-radius: rem-calc(50);
 
-            border-radius: rem-calc(50);
+						width: rem-calc(60);
+						margin-bottom: rem-calc(5);
+					}
+				}
+			}
 
-            width: rem-calc(80);
-            height: rem-calc(25);
-            margin-bottom: rem-calc(5);
-          }
-        }
+			&__image {
+				position: absolute;
 
+				display: flex;
+				align-items: center;
+				justify-content: center;
 
+				height: rem-calc(90);
+				width: rem-calc(90);
 
-      }
+				right: $padding;
+				bottom: $padding;
 
-      &__image {
-        position: absolute;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        height: rem-calc(110);
-        width: rem-calc(110);
-
-        bottom: rem-calc(22);
-        right: rem-calc(60);
-
-
-        background: url('../../../assets/bg/pokeball-background.png') no-repeat;
+				background: url('../../../assets/bg/pokeball-background.png') no-repeat;
         background-position: center center;
         background-size: cover;
+				img {
+					width: rem-calc(60);
 
-        img {
-          width: rem-calc(80);
-        }
-      }
+				}
+			}
+		}
 
-    }
-  }
+		@media (max-width: 400px) {
+			a {
+				width: 100% !important;
+			}
+		}
+	}
 }

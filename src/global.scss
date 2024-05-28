@@ -4,14 +4,14 @@
 @import '../src/style/btn.scss';
 
 html {
-  background: var(--gray-dark);
+	background: var(--gray-dark);
 }
 
 main {
-  margin: 0 auto;
-  box-sizing: border-box;
-
+	max-width: rem-calc(800);
+	box-sizing: border-box;
+	padding: 0 20px;
+	margin: 0 auto;
 }
-
 
 
