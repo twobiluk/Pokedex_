@@ -5,6 +5,9 @@ import { PokeHeaderComponent } from './poke-header/poke-header.component';
 import { PokeSearchComponent } from './poke-search/poke-search.component';
 import { PokeListComponent } from './poke-list/poke-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RoutingModule } from '../pages/routing.module';
+
+
 
 
 
@@ -16,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    RoutingModule
   ],
   exports: [
     PokeHeaderComponent,
