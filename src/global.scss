@@ -2,10 +2,6 @@
 @import '../src/style/rem-calc.scss';
 @import '../src/style/reset.scss';
 
-* {
-  max-width: rem-calc(600);
-  margin: auto;
-}
 html {
   background: var(--gray-dark);
 }
@@ -13,7 +9,7 @@ html {
 main {
   margin: 0 auto;
   box-sizing: border-box;
-  max-width: rem-calc(600);
+
 }
 
 
