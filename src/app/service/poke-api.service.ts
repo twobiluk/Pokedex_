@@ -6,33 +6,27 @@ import { Observable, map, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class PokeApiService {
+  private baseUrl: string = 'https://pokeapi.co/api/v2/pokemon';
 
-  private url: string = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=100'
+  constructor(private http: HttpClient) {}
 
-  constructor(
-    private http: HttpClient
-  ) { }
-  get apiListAllPokemons(): Observable<any> {
-    return this.http.get<any>(this.url).pipe(
+  getPokemons(offset: number = 0, limit: number = 1000): Observable<any> {
+    const url = `${this.baseUrl}?offset=${offset}&limit=${limit}`;
+    return this.http.get<any>(url).pipe(
       tap(res => res),
-      tap(res =>{
-        res.results.map( (resPokemons : any) => {
+      tap(res => {
+        res.results.map((resPokemons: any) => {
           this.apiGetPokemons(resPokemons.url).subscribe(
             res => resPokemons.status = res
-          )
-
-        })
+          );
+        });
       })
-    )
-
+    );
   }
-  public apiGetPokemons(url: string):Observable<any> {
-    return this.http.get<any>(url).pipe(
-      map(
-        res => res
-      )
-    )
 
+  public apiGetPokemons(url: string): Observable<any> {
+    return this.http.get<any>(url).pipe(
+      map(res => res)
+    );
   }
 }
-

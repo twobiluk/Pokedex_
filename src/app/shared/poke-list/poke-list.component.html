@@ -1,11 +1,10 @@
-<!-- Search -->
-<app-poke-search (emmitSearch)="getSearch($event)" ></app-poke-search>
+<app-poke-search (emmitSearch)="getSearch($event)"></app-poke-search>
 <section class="listagem">
-  <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons" >
+  <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
     <a
-    [routerLink]="['details', pokemon.status.id]"
-    class="pokemon {{ 'bg-color-' + getPrincipalType(pokemon.status.types) + '-light' }}"
-    *ngIf="pokemon.status"
+      [routerLink]="['details', pokemon.status.id]"
+      class="pokemon {{ 'bg-color-' + getPrincipalType(pokemon.status.types) + '-light' }}"
+      *ngIf="pokemon.status"
     >
       <section class="pokemon__status">
         <h2>
@@ -13,19 +12,24 @@
         </h2>
         <ul>
           <li
-          *ngFor="let value of pokemon.status.types"
-          class="{{ 'bg-color-' + value.type.name }}">
+            *ngFor="let value of pokemon.status.types"
+            class="{{ 'bg-color-' + value.type.name }}"
+          >
             {{ value.type.name }}
-          <li>
+          </li>
         </ul>
       </section>
       <section class="pokemon__image">
         <img
-         [src]="pokemon.status.sprites.other.dream_world.front_default"
-         [alt]="pokemon.name">
+          [src]="pokemon.status.sprites.other.dream_world.front_default"
+          [alt]="pokemon.name"
+        >
       </section>
     </a>
   </ng-template>
 </section>
 
-
+<div class="pagination">
+  <button (click)="prevPage()" [disabled]="offset === 0">Previous</button>
+  <button (click)="nextPage()">Next</button>
+</div>

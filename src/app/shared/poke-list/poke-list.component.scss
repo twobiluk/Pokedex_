@@ -87,4 +87,25 @@ $padding: rem-calc(20);
 			}
 		}
 	}
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: $padding;
+
+    button {
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: none;
+      padding: $padding;
+      margin: 0 $padding;
+      border-radius: rem-calc(5);
+      cursor: pointer;
+
+      &:disabled {
+        background-color: var(--grey);
+        cursor: not-allowed;
+      }
+    }
+  }
+
 }

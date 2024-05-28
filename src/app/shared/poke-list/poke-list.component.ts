@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PokeApiService } from 'src/app/service/poke-api.service';
 
 @Component({
@@ -7,20 +7,23 @@ import { PokeApiService } from 'src/app/service/poke-api.service';
   styleUrls: ['./poke-list.component.scss'],
 })
 export class PokeListComponent implements OnInit {
-  private setAllPokemons: any;
-  public getAllPokemons: any;
-
+  public getAllPokemons: any[] = [];
+  public allPokemons: any[] = []; // Nova variável para armazenar todos os Pokémons
   public apiError: boolean = false;
+  public offset: number = 0;
+  public limit: number = 50;
 
-  constructor(
-    private pokeApiService: PokeApiService
-  ) { }
+  constructor(private pokeApiService: PokeApiService) {}
 
   ngOnInit(): void {
-    this.pokeApiService.apiListAllPokemons.subscribe(
+    this.loadAllPokemons();
+    this.loadPokemons();
+  }
+
+  private loadAllPokemons() {
+    this.pokeApiService.getPokemons(0, 1000).subscribe( 
       res => {
-        this.setAllPokemons = res.results;
-        this.getAllPokemons = this.setAllPokemons;
+        this.allPokemons = res.results;
       },
       error => {
         this.apiError = true;
@@ -28,14 +31,37 @@ export class PokeListComponent implements OnInit {
     );
   }
 
-  public getSearch(value: string){
-    const filter = this.setAllPokemons.filter( (res: any ) => {
+  private loadPokemons() {
+    this.pokeApiService.getPokemons(this.offset, this.limit).subscribe(
+      res => {
+        this.getAllPokemons = res.results;
+      },
+      error => {
+        this.apiError = true;
+      }
+    );
+  }
+
+  public getSearch(value: string) {
+    const filter = this.allPokemons.filter((res: any) => {
       return !res.name.indexOf(value.toLowerCase());
     });
-
     this.getAllPokemons = filter;
   }
-  getPrincipalType(list: any[]) {
+
+  public getPrincipalType(list: any[]) {
     return list.filter(x => x.slot === 1)[0]?.type.name;
+  }
+
+  public nextPage() {
+    this.offset += this.limit;
+    this.loadPokemons();
+  }
+
+  public prevPage() {
+    if (this.offset > 0) {
+      this.offset -= this.limit;
+      this.loadPokemons();
+    }
   }
 }
