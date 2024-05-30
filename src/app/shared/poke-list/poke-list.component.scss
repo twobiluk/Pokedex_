@@ -93,8 +93,9 @@ $padding: rem-calc(20);
     margin-top: $padding;
 
     button {
-      background-color: var(--primary-color);
+      background-color: var(--pink);
       color: var(--white);
+      width: rem-calc(150);
       border: none;
       padding: $padding;
       margin: 0 $padding;
@@ -102,7 +103,7 @@ $padding: rem-calc(20);
       cursor: pointer;
 
       &:disabled {
-        background-color: var(--grey);
+        background-color: var(--transparent);
         cursor: not-allowed;
       }
     }
