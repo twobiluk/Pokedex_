@@ -1,35 +1,49 @@
 <!-- Header -->
 <app-poke-header></app-poke-header>
+
 <main>
 
+  <!-- Verifica se o carregamento está em andamento -->
   <ng-template [ngIf]="isLoading">
+    <!-- Se isLoading for verdadeiro, exibe os detalhes do Pokémon -->
     <section class="pokemon__names">
+      <!-- Nome do Pokémon -->
       <h1 class="slideInLeft">{{pokemon[0].name}}</h1>
+      <!-- Créditos -->
       <h2 class="slideInRight">Desenvolvido por Thales Rocha</h2>
     </section>
 
+    <!-- Seção para exibir a imagem e as estatísticas do Pokémon -->
     <section class="pokemon__status">
+      <!-- Imagem do Pokémon -->
       <img
         [src]="pokemon[0].sprites.other.dream_world.front_default"
         [alt]="pokemon[0].name"
         class="slideInDown"
       >
 
+      <!-- Estatísticas do Pokémon -->
       <article class="pokemon__status__statistics fadeIn">
         <section>
+          <!-- Título das estatísticas -->
           <h3>Estatísticas</h3>
 
+          <!-- Lista das estatísticas -->
           <ol>
+            <!-- Itera sobre as estatísticas do Pokémon -->
             <li *ngFor="let value of pokemon[0].stats">
+                <!-- Nome da estatística -->
                 {{ value.stat.name }}
 
-              <strong>
-                {{ value.base_stat }}
-              </strong>
+                <!-- Valor base da estatística -->
+                <strong>
+                  {{ value.base_stat }}
+                </strong>
             </li>
           </ol>
         </section>
 
+        <!-- Botão para voltar -->
         <a [routerLink]="['']" class="btn btn__secondary">
           Voltar
         </a>
@@ -37,6 +51,7 @@
     </section>
   </ng-template>
 
+  <!-- Se houver um erro na API, exibe uma imagem de erro -->
   <img
     src="../../../assets/icon/error.png"
     alt="Deu erro na mostragem do pokemon"
