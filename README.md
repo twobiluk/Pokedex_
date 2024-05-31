@@ -48,4 +48,10 @@ Este é um projeto de Pokédex desenvolvido utilizando Ionic e Angular, integran
 
 ---
 
+## Video de apresentação do aplicativo:
+**Observações (Ao enviar para nuvem ele perdeu um pouco da qualidade)**
+https://drive.google.com/file/d/1NSCraHLw1QKZRGoz_ccLrNsrEIF8b43k/view?usp=drive_link
+
+---
+
 Desenvolvido por [Thales Rocha](https://github.com/twobiluk)
