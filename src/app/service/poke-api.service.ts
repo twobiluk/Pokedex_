@@ -13,7 +13,7 @@ export class PokeApiService {
 
   // Método para obter uma lista de Pokémons da API
   // Parâmetros opcionais: offset (deslocamento) e limit (limite)
-  getPokemons(offset: number = 0, limit: number = 1250): Observable<any> {
+  getPokemons(offset: number = 0, limit: number = 1302): Observable<any> {
     const url = `${this.baseUrl}?offset=${offset}&limit=${limit}`;
     // Faz a requisição GET para a API
     return this.http.get<any>(url).pipe(

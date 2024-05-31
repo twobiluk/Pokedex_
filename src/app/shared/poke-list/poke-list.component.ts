@@ -26,7 +26,7 @@ export class PokeListComponent implements OnInit {
 
   // Método para carregar todos os Pokémons disponíveis
   private loadAllPokemons() {
-    this.pokeApiService.getPokemons(0, 1250).subscribe(
+    this.pokeApiService.getPokemons(0, 1302).subscribe(
       res => {
         this.allPokemons = res.results;
       },
